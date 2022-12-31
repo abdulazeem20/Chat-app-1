@@ -1,0 +1,15 @@
+[11-Oct-2021 16:40:04 UTC] PHP Fatal error:  Uncaught Error: Class "Database" not found in C:\Double_Abdul\mychatapp\app\class\user.php:2
+Stack trace:
+#0 {main}
+  thrown in C:\Double_Abdul\mychatapp\app\class\user.php on line 2
+[11-Oct-2021 18:54:58 UTC] PHP Warning:  foreach() argument must be of type array|object, string given in C:\Double_Abdul\mychatapp\app\class\user.php on line 11
+[11-Oct-2021 18:54:58 UTC] PHP Warning:  Undefined variable $user in C:\Double_Abdul\mychatapp\app\class\autoload.php on line 10
+[11-Oct-2021 18:54:58 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: null - User in C:\Double_Abdul\mychatapp\app\class\autoload.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\Double_Abdul\mychatapp\app\class\autoload.php on line 10
+[11-Oct-2021 18:55:12 UTC] PHP Warning:  Undefined variable $user in C:\Double_Abdul\mychatapp\app\class\autoload.php on line 10
+[11-Oct-2021 18:55:12 UTC] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: null - User in C:\Double_Abdul\mychatapp\app\class\autoload.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\Double_Abdul\mychatapp\app\class\autoload.php on line 10

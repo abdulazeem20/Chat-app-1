@@ -1,0 +1,89 @@
+{% extends "include/base.html" %}
+{% block style %}
+{{ parent() }}
+<link rel="stylesheet" href="src/template/static/style/style.css">
+{% endblock %}
+{% block body %}
+
+<body onload="get()">
+    <div class="container">
+        <div class="appFormBody">
+            <div class="card h-100 appCard shadow-lg">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="card-title">My Chat App</h5>
+                        </div>
+                        <div class="col-6 text-end">
+                            <div class="dropstart">
+                                <i class="fas fa-ellipsis-v dropdown-toggle text-muted" style="cursor: pointer;" data-bs-toggle="dropdown"></i>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item headerLink" href="profile.php">Profile</a>
+                                    <hr class="dropdown-divider">
+                                    <a href="signout.php" class="dropdown-item headerLink">Sign-out <i class="fa fa-sign-out-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-4 mt-3">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <button class="nav-link active p-0 px-2 " data-bs-toggle="tab" data-bs-target="#chat">Chat</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link p-0 px-2" data-bs-toggle="tab" data-bs-target="#user">Users</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" style="margin-bottom: 0px;" type=" text" name="userLookUp" id="userLookUpId" placeholder="Search For a Friend" onkeyup="searchFriend('userLookUpId','searchResult','homeChat')" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body overflow-auto">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="chat">
+                            <input type="text" id="sessionId" value="{{sessionId}}" hidden>
+                            <div class="homeChat" id="homeChat">
+
+
+
+                            </div>
+                            <div id="searchResult">
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane user" id="user">
+                            <div id="inner">
+                                {% for user in users %}
+                                <a href="chat.php?ussid={{user.ussid}}&username={{user.username}}" class="nav-link">
+                                    <label class="p-0" style="cursor: pointer;">
+                                        <img src="src/template/static/images/{{user.image}}" class="rounded-circle" alt="">
+                                        <label class="view text-dark" style="cursor: pointer;">
+                                            {{user.username}}
+                                        </label>
+                                    </label>
+                                    <hr class="dropdown-divider">
+                                </a>
+                                {% endfor %}
+                            </div>
+                            <div id="searchResultU">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block script %}
+    {{ parent() }}
+    <script src="src/template/static/script/home.js"></script>
+    {% endblock %}
+    {% endblock %}

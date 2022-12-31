@@ -1,0 +1,144 @@
+{% extends "include/base.html" %}
+{% block style %}
+{{ parent() }}
+<link rel="stylesheet" href="src/template/static/style/style.css">
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="appFormBody">
+
+
+        {% if ussidSet and usernameSet %}
+        <div class="card h-100 appCard shadow-lg">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8">
+                        <a href="chat.php?ussid={{friend.ussid}}&username={{friend.username}}">
+                            <i class="fas fa-arrow-left text-muted" style="cursor: pointer;"></i>
+                        </a>
+                        <img src="src/template/static/images/{{friend.image}}" class="rounded-circle" width="20px" alt="" srcset="">
+                        <label class="card-title">{{friend.username}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row mt-2">
+
+                    <div class="col-12  ">
+                        <div class="card border-0">
+                            <div class="card-body" style="margin: auto;">
+                                <div style="margin-left: 5em;">
+                                    <img src="src/template/static/images/{{friend.image}}" alt="" class=" w-75 rounded-pill" srcset="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h5 class="modal-title"><strong>Name:</strong> <span id="profileName">{{friend.last_name}} {{friend.first_name}}</span></h5>
+                        <h5 class="modal-title"><strong>Username:</strong> <span id="profileName">{{friend.username}}</span></h5>
+                        <h5 class="modal-title"><strong>Phone Number:</strong> <span id="profileName">{{friend.phone_number}}</span></h5>
+                        <h5 class="modal-title"><strong>Email:</strong> <span id="profileName">{{friend.email}}</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="card h-100 appCard shadow-lg">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-8">
+                        <a href="home.php">
+                            <i class="fas fa-arrow-left text-muted" style="cursor: pointer;"></i>
+                        </a>
+                        <img src="src/template/static/images/{{user.image}}" class="rounded-circle" width="20px" alt="" srcset="">
+                        <label class="card-title">{{user.username}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <h5 class="card-title">Welcome {{user.username}} </h5>
+
+                <div class="row mt-2">
+
+                    <div class="col-12  ">
+                        <div class="card border-0">
+                            <div class="card-body" style="margin: auto;">
+                                <div style="margin-left: 5em;">
+                                    <img src="src/template/static/images/{{user.image}}" alt="" class=" w-75 rounded-pill" srcset="">
+                                </div>
+                                <label id="response">
+
+                                </label>
+                                <label for="profileImage" style="margin-left: 3em;" class="btn btn-warning w-75 mt-3  ">Change Image</label>
+                                <input type="file" name="img" onchange="uploadProfileImage(this.files)" id="profileImage" hidden>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h5 class="modal-title"><strong>Name:</strong> <span id="profileName">{{user.last_name}} {{user.first_name}}</span></h5>
+                        <h5 class="modal-title"><strong>Username:</strong> <span id="profileName">{{user.username}}</span></h5>
+                        <h5 class="modal-title"><strong>Phone Number:</strong> <span id="profileName">{{user.phone_number}}</span></h5>
+                        <h5 class="modal-title"><strong>Email:</strong> <span id="profileName">{{user.email}}</span></h5>
+                        <button class="btn btn-primary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#editProfile">Edit Profile <i class="fas fa-edit"></i></button>
+                    </div>
+
+                    <div class="modal fade" id="editProfile">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        Edit Profile
+                                    </h5>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="post" id="editUserProfile">
+                                        <div class="mb-3">
+                                            <label for="lastname" class="form-label">Last Name: </label>
+                                            <input type="text" value="{{ user.last_name}}" name="lastname" class="form-control" id="lastname" autofocus>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="firstname" class="form-label">First Name: </label>
+                                            <input type="text" value="{{ user.first_name}}" name="firstname" class="form-control" id="firstname">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username: </label>
+                                            <input type="text" value="{{ user.username}}" name="username" class="form-control" id="username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">E-Mail: </label>
+                                            <input type="email" value="{{ user.email}}" name="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="phonenumber" class="form-label">Phone Number: </label>
+                                            <input type="text" value="{{ user.phone_number}}" name="phonenumber" class="form-control" id="phonenumber">
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" id="editUserProfileButton" name="editUserProfileButton" class="btn btn-primary w-100">Edit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+
+
+    </div>
+
+    {% block script %}
+    {{ parent() }}
+    <script src="src/template/static/script/profile.js"></script>
+    {% endblock %}
+    {% endblock %}

@@ -1,0 +1,53 @@
+{% extends "include/base.html" %}
+{% block style %}
+{{ parent() }}
+<link rel="stylesheet" href="src/template/static/style/style.css">
+{% endblock %}
+{% block body %}
+
+<body onload="getChat()">
+
+    <div class="container">
+        <div class="appFormBody">
+            <div class="card h-100 appCard shadow-lg" style="border-bottom-right-radius: 1em;border-bottom-left-radius: 1em;">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-8">
+                            <a href="home.php">
+                                <i class="fas fa-arrow-left text-muted"></i>
+                            </a>
+                            <a href="profile.php?ussid={{friend.ussid}}&username={{friend.username}}">
+                                <img src="src/template/static/images/{{friend.image}}" class="rounded-circle" width="20px" alt="">
+                                <label class="card-title text-dark" style="cursor: pointer;">{{friend.username}}</label>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+
+                    <div class="messaging overflow-auto" id="messaging">
+                        <input type="text" name="" value="{{incomingId}}" id="incomingId" hidden>
+                        <input type="text" name="" value="{{outgoingId}}" id="outgoingId" hidden>
+                        <input type="text" name="" value="{{convId}}" id="convId" hidden>
+
+
+
+                    </div>
+                    <form action="" id="chatForm" onsubmit="sendChat(this,event)">
+                        <div class="input-group px-1">
+                            {# <textarea class="form-control" placeholder="Enter Your Message here ...." style="resize: none;" name="textArea" id="textArea" rows="1"></textarea> #}
+                            <input type="text" class="form-control " name="textArea" placeholder="Enter Your Message here ...."  id="textArea" autofocus>
+
+                            <button type="submit" name="sendMessage" class="btn btn-success"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block script %}
+    {{ parent() }}
+    <script src="src/template/static/script/chat.js"></script>
+    {% endblock %}
+    {% endblock %}

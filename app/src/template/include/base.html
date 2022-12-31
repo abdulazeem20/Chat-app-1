@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>{{title}}</title>
+        <meta charset="UTF-8">
+        <base href="http://mychatapp.test/app/" target="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block style %}
+        <link href="http://localhost:100/bootstrap.min.css" rel="stylesheet">
+        <link href="http://localhost:100/fontawesome/css/all.min.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block body %}
+
+        {% block script %}
+        <script src="http://localhost:100/jquery.js"></script>
+        <script src="http://localhost:100/proper.js"></script>
+        <script src="http://localhost:100/bootstrap.min.js"></script>
+        <script src="http://localhost:100/fontawesome/js/all.min.js"></script>
+        {% endblock %}
+        {% endblock %}
+    </body>
+
+</html>

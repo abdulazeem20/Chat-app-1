@@ -1,0 +1,123 @@
+.signinFormBody {
+    margin: auto;
+    max-width: 350px;
+    margin-top: 5em;
+}
+
+.siginupFormBody {
+    margin: auto;
+    margin-top: 2em;
+}
+
+.signinCardBody {
+    border-radius: 1.5em;
+    padding: 0.5em;
+}
+
+.signupCardBody {
+    border-radius: 1.5em;
+    padding: 1em;
+}
+
+.appFormBody {
+    margin: auto;
+    max-width: 450px;
+    height: 630px;
+    margin-top: 3em;
+}
+
+.appCard {
+    border-radius: 1.5em;
+    padding-bottom: 2px;
+}
+
+.headerLink:active {
+    background-color: #dadadafe;
+    outline: none;
+}
+
+.messaging {
+    height: 530px;
+    /* background-color: lightcyan; */
+}
+
+.outgoing {
+    margin: 5px;
+    float: right;
+    min-height: 5px;
+    width: 300px;
+}
+
+.outgoing img {
+    width: 20px;
+    border-radius: 2em;
+    float: right;
+}
+
+.outgoing .details p {
+    color: #fff;
+    float: right;
+    background-color: rgb(55, 179, 236);
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 18px 18px 0 20px;
+    font-size: 14px;
+    /* margin-right: 2em; */
+}
+
+.incoming {
+    margin: 5px;
+    min-height: 5px;
+    float: left;
+    width: 300px;
+}
+
+.incoming img {
+    width: 20px;
+    border-radius: 2em;
+    float: left;
+}
+
+.incoming .details p {
+    color: #fff;
+    float: left;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgb(67, 231, 168);
+    border-radius: 20px 18px 18px 0;
+    font-size: 14px;
+    /* margin-left: 2em; */
+}
+
+.homeChat {
+    height: 45px;
+    padding-left: 0;
+}
+
+.homeChat a label img {
+    width: 30px;
+}
+
+.homeChat a label .view {
+    margin-left: 5px;
+}
+
+.user {
+    height: 45px;
+    padding-left: 0;
+}
+
+.user a label img {
+    width: 30px;
+}
+
+.user a label .view {
+    margin-left: 5px;
+}
+
+#searchResult {
+    height: 45px;
+    padding-left: 0;
+}
